@@ -16,9 +16,10 @@ public class BallGenerator : MonoBehaviour
     {
         if(Mouse.current.press.wasPressedThisFrame)
         {
+            Vector3 cameraPos = Camera.main.transform.position;
 //            GameObject ball = Instantiate(ballPrefab, transform.position, Quaternion.identity);// as GameObject;
 
-            GameObject ball = Instantiate(ballPrefab) as GameObject;
+            GameObject ball = Instantiate(ballPrefab, cameraPos, Quaternion.identity) as GameObject;
             
             Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             Vector3 worldDir = ray.direction;
